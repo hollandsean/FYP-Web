@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}PATIENT DATA{% endblock %}
+
+{% block content %}
+{% csrf_token %}
+
+<h2>PATIENT {{PATIENT}}</h2>
+
+<pre>{{DATA}}</pre>
+
+<p><a href="{% url 'logout' %}">LOGOUT</a></p>
+<p><a href="{% url 'home' %}">SEARCH MRN AGAIN</a></p>
+{% endblock %}

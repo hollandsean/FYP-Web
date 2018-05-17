@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+      <form action="/display/" method="post">
+          {% csrf_token %}
+          <label for="Patient_MRN">Enter patient MRN:</label>
+          <input type="text" name="Patient_MRN" id="Patient_MRN" size="30">
+          <input type="submit" value="Search">
+      </form>
+  <p><a href="{% url 'logout' %}">LOGOUT</a></p>
+{% else %}
+  <p>Atrial Fibrillation Diagnosis Application</p>
+  <a href="{% url 'login' %}">LOG IN</a>
+{% endif %}
+{% endblock %}
